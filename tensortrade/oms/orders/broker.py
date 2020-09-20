@@ -88,9 +88,9 @@ class Broker(OrderListener, TimeIndexed):
                 order.attach(self)
                 order.execute()
 
-        for order in self.unexecuted + list(self.executed.values()):
-            if order.is_active and order.is_expired:
-                self.cancel(order)
+        # for order in self.unexecuted + list(self.executed.values()):
+        #     if order.is_active and order.is_expired:
+        #         self.cancel(order)
 
     def on_fill(self, order: "Order", trade: "Trade") -> None:
         """Updates the broker after an order has been filled.
